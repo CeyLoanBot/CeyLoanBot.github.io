@@ -6,71 +6,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #f4f6f8;
       color: #333;
-      text-align: center;
-      padding: 40px 20px;
+      overflow-x: hidden;
     }
-    img.logo {
-      width: 120px;
-      height: 120px;
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header img.logo {
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      margin-bottom: 20px;
     }
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
+
+    header h1 {
+      margin-left: 15px;
+      font-size: 1.8em;
+      color: #007acc;
     }
-    p {
-      font-size: 1.1em;
-      margin-bottom: 25px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in;
     }
-    .links a {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 20px;
-      background-color: #007acc;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background 0.3s;
+
+    section img {
+      max-width: 300px;
+      border-radius: 12px;
+      margin: 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease-out;
     }
-    .links a:hover {
-      background-color: #005fa3;
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    footer {
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #007acc;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
       margin-top: 40px;
+    }
+
+    .socials a img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s;
+    }
+
+    .socials a:hover img {
+      transform: scale(1.2);
+    }
+
+    footer {
+      background-color: #fff;
+      padding: 30px 20px;
+      text-align: center;
       font-size: 0.9em;
       color: #777;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="CeyloanBot Logo" class="logo">
-  <h1>Welcome to CeyloanBot</h1>
-  <p>
-    We offer higher loan amounts to Sri Lankan citizens than to foreigners — it's part of our local welfare initiative.  
-    Monthly interest rates range from <strong>4%–9%</strong>, with <strong>2%–3%</strong> for loyal customers.  
-    Our loans are primarily in <strong>crypto</strong>, but we also support <strong>bank transfers</strong>.
-  </p>
 
-  <p>
-    Most loans are processed via our <strong>Telegram bot</strong>, but you can also reach us through Instagram or WhatsApp.  
-    We also offer <strong>brand ambassadorships</strong> — join the movement!
-  </p>
+  <header>
+    <img src="logo.png" alt="CeyloanBot Logo" class="logo">
+    <h1>CeyloanBot</h1>
+  </header>
 
-  <div class="links">
-    <a href="https://t.me/CeyloanBot_Community">Telegram Community</a>
-    <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31">WhatsApp Channel</a>
-    <a href="https://instagram.com/yourprofilelink">Instagram (Coming Soon)</a>
-  </div>
+  <section>
+    <h2>💸 Bigger Loans for Sri Lankans</h2>
+    <p>We prioritize <span class="highlight">local welfare</span> by offering higher loan amounts to Sri Lankan citizens than to foreigners.</p>
+    <img src="money.png" alt="Loan Money">
+  </section>
+
+  <section>
+    <h2>📉 Low Interest Rates</h2>
+    <p>Monthly interest ranges from <span class="highlight">4%–9%</span>, and loyal customers enjoy just <span class="highlight">2%–3%</span>.</p>
+    <img src="repay.png" alt="Repayment">
+  </section>
+
+  <section>
+    <h2>🪙 Crypto & Bank Transfers</h2>
+    <p>We specialize in <span class="highlight">crypto loans</span>, but also support <span class="highlight">bank transfers</span> for convenience.</p>
+    <img src="crypto.png" alt="Crypto Loans">
+  </section>
+
+  <section>
+    <h2>🤖 Reach Us Anytime</h2>
+    <p>Most loans are processed via our <span class="highlight">Telegram bot</span>, but you can also connect through Instagram or WhatsApp.</p>
+
+    <div class="socials">
+      <a href="https://t.me/CeyloanBot_Community" target="_blank">
+        <img src="telegram-logo.png" alt="Telegram">
+      </a>
+      <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank">
+        <img src="whatsapp-logo.png" alt="WhatsApp">
+      </a>
+      <a href="https://instagram.com/yourprofilelink" target="_blank">
+        <img src="instagram-logo.png" alt="Instagram">
+      </a>
+    </div>
+  </section>
 
   <footer>
-    © 2025 CeyloanBot • Empowering Sri Lanka through crypto finance
+    © 2025 CeyloanBot • Empowering Sri Lanka through crypto finance  
+    <br>Brand Ambassadorships Available • Join the Movement
   </footer>
+
 </body>
 </html>
