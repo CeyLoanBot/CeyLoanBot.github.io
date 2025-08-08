@@ -11,6 +11,7 @@
       background: #f4f6f8;
       color: #333;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -37,6 +38,14 @@
       padding: 60px 20px;
       text-align: center;
       animation: fadeIn 1.2s ease-in;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     section img {
@@ -44,22 +53,16 @@
       border-radius: 12px;
       margin: 20px 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      animation: slideUp 1s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .highlight {
       font-weight: bold;
       color: #007acc;
+      text-decoration: none;
+    }
+
+    .highlight:hover {
+      text-decoration: underline;
     }
 
     .socials {
@@ -86,6 +89,44 @@
       font-size: 0.9em;
       color: #777;
       border-top: 1px solid #ddd;
+    }
+
+    #calc-container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    #calc-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    #calc-container button {
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .toggle button {
+      margin: 5px;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
     }
   </style>
 </head>
@@ -115,9 +156,38 @@
   </section>
 
   <section>
-    <h2>🤖 Reach Us Anytime</h2>
-    <p>Most loans are processed via our <span class="highlight">Telegram bot</span>, but you can also connect through Instagram or WhatsApp.</p>
+    <h2>📊 ROI & Loan Calculator</h2>
+    <p>Estimate your potential returns or repayments below.</p>
+    <img src="calculator.png" alt="Calculator Image">
+    <div id="calc-container">
+      <div class="toggle">
+        <button onclick="setMode('investment')">💰 Investment</button>
+        <button onclick="setMode('loan')">💸 Loan</button>
+      </div>
+      <label>Enter Amount (USD):</label>
+      <input type="number" id="amount" placeholder="e.g. 250">
+      <label>Duration (Months):</label>
+      <input type="number" id="months" placeholder="e.g. 6">
+      <button onclick="calculate()">Calculate</button>
+      <div id="result"></div>
+    </div>
+  </section>
 
+  <section>
+    <h2>🛡️ Trusted, Transparent & Secure</h2>
+    <p>Your data and transactions are protected with industry-standard security practices. We ensure transparency in every loan and investment.</p>
+    <img src="security.png" alt="Security">
+  </section>
+
+  <section>
+    <h2>🌐 Join Our Growing Community</h2>
+    <p>Thousands of Sri Lankans already trust <span class="highlight"><a href="https://t.me/CeyloanBot_Community" class="highlight" target="_blank">CeyloanBot</a></span>. Stay updated, ask questions, and be part of something revolutionary.</p>
+    <img src="community.png" alt="Community">
+  </section>
+
+  <section>
+    <h2>🤖 Reach Us Anytime</h2>
+    <p>Most loans are processed via our <a class="highlight" href="https://t.me/CeyloanBot_Community" target="_blank">Telegram bot</a>, but you can also connect through <a class="highlight" href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank">WhatsApp</a> or <a class="highlight" href="https://instagram.com/ceyloanbot" target="_blank">Instagram</a>.</p>
     <div class="socials">
       <a href="https://t.me/CeyloanBot_Community" target="_blank">
         <img src="telegram-logo.png" alt="Telegram">
@@ -125,7 +195,7 @@
       <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank">
         <img src="whatsapp-logo.png" alt="WhatsApp">
       </a>
-      <a href="https://instagram.com/yourprofilelink" target="_blank">
+      <a href="https://instagram.com/ceyloanbot" target="_blank">
         <img src="instagram-logo.png" alt="Instagram">
       </a>
     </div>
@@ -136,5 +206,51 @@
     <br>Brand Ambassadorships Available • Join the Movement
   </footer>
 
+  <script>
+    let mode = 'investment';
+
+    function setMode(selectedMode) {
+      mode = selectedMode;
+      document.getElementById("result").innerHTML = '';
+    }
+
+    function calculate() {
+      const amount = parseFloat(document.getElementById("amount").value);
+      const months = parseInt(document.getElementById("months").value);
+      let rate = 0;
+
+      if (mode === 'investment') {
+        if (amount >= 10 && amount <= 99) rate = 1;
+        else if (amount <= 499) rate = 3;
+        else if (amount <= 999) rate = 5;
+        else if (amount <= 2999) rate = 8;
+        else if (amount >= 3000) rate = 11.5; // avg of 10–13%
+        const total = amount + (amount * (rate / 100) * months);
+        document.getElementById("result").innerText = `Expected ROI: $${(total - amount).toFixed(2)} | Total: $${total.toFixed(2)} @ ${rate}% monthly`;
+      }
+
+      else if (mode === 'loan') {
+        if (amount >= 10 && amount <= 150) rate = 15;
+        else if (amount <= 300) rate = 11; // avg of 9–13%
+        else if (amount <= 1000) rate = 8.5;
+        else if (amount <= 2999) rate = 3.5;
+        const total = amount + (amount * (rate / 100) * months);
+        document.getElementById("result").innerText = `Estimated Repayment: $${total.toFixed(2)} @ ${rate}% monthly`;
+      }
+    }
+
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
