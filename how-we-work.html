@@ -63,6 +63,7 @@
       gap: 15px;
       flex-wrap: nowrap; /* Prevent wrapping */
       flex-shrink: 0;
+      position: relative;
     }
 
     ul.nav-links {
@@ -84,6 +85,7 @@
       border-radius: 6px;
       transition: background-color 0.3s ease;
       white-space: nowrap; /* Prevent breaking */
+      display: inline-block;
     }
 
     ul.nav-links li a:hover,
@@ -106,6 +108,9 @@
       transition: filter 0.3s ease, transform 0.3s ease;
       cursor: pointer;
       user-select: none;
+      display: inline-block;
+      object-fit: contain;
+      vertical-align: middle;
     }
 
     .nav-socials a:hover img {
@@ -113,7 +118,7 @@
       transform: scale(1.2);
     }
 
-    /* Hamburger menu for mobile */
+    /* Hamburger menu styles */
     #hamburger {
       display: none;
       width: 25px;
@@ -121,6 +126,7 @@
       flex-direction: column;
       justify-content: space-between;
       cursor: pointer;
+      z-index: 1100; /* higher than nav links */
     }
 
     #hamburger div {
@@ -129,6 +135,7 @@
       border-radius: 2px;
     }
 
+    /* Show hamburger on mobile */
     @media (max-width: 840px) {
       #hamburger {
         display: flex;
@@ -141,10 +148,11 @@
         flex-direction: column;
         max-height: 0;
         overflow: hidden;
-        width: 200px;
+        width: 220px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         border-radius: 8px;
         transition: max-height 0.3s ease;
+        z-index: 1050;
       }
       ul.nav-links.open {
         max-height: 400px;
@@ -245,7 +253,7 @@
     </div>
 
     <nav>
-      <div id="hamburger" aria-label="Toggle menu" tabindex="0">
+      <div id="hamburger" aria-label="Toggle menu" tabindex="0" role="button">
         <div></div>
         <div></div>
         <div></div>
@@ -264,13 +272,13 @@
         <li><a href="disclaimer.html">Disclaimer</a></li>
       </ul>
       <div class="nav-socials">
-        <a href="https://t.me/CeyloanBot_Community" target="_blank" title="Telegram Bot">
+        <a href="https://t.me/CeyloanBot_Community" target="_blank" title="Telegram Bot" rel="noopener">
           <img src="telegram-logo.png" alt="Telegram" />
         </a>
-        <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank" title="WhatsApp">
+        <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank" title="WhatsApp" rel="noopener">
           <img src="whatsapp-logo.png" alt="WhatsApp" />
         </a>
-        <a href="https://instagram.com/ceyloanbot" target="_blank" title="Instagram">
+        <a href="https://instagram.com/ceyloanbot" target="_blank" title="Instagram" rel="noopener">
           <img src="instagram-logo.png" alt="Instagram" />
         </a>
       </div>
