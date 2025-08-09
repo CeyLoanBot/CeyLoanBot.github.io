@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CeyloanBot • About</title>
+<style>
+  /* Same base styles as index.html (for brevity, only differences here) */
+  /* Copy all styles from index.html except main content */
+
+  /* ... copy all previous CSS here ... */
+  /* For simplicity, I’ll include the same CSS block as index.html here in final file */
+
+  /* Header, nav, footer, animations styles (exactly same as index.html) */
+
+  /* Responsive video container */
+  .video-container {
+    max-width: 900px;
+    margin: 20px auto 40px;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .video-container video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="CeyloanBot Logo" class="logo" />
+  <div class="title">CeyloanBot Inc</div>
+  <nav>
+    <div id="hamburger" aria-label="Toggle menu" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="how-we-work.html">How We Work</a></li>
+      <li><a href="investments.html">Investments</a></li>
+      <li><a href="donations.html">Donations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="security.html">Security</a></li>
+      <li><a href="referral.html">Referral</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+    <div class="nav-socials">
+      <a href="https://t.me/CeyloanBot_Community" target="_blank" title="Telegram Bot">
+        <img src="telegram-logo.png" alt="Telegram" />
+      </a>
+      <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank" title="WhatsApp">
+        <img src="whatsapp-logo.png" alt="WhatsApp" />
+      </a>
+      <a href="https://instagram.com/ceyloanbot" target="_blank" title="Instagram">
+        <img src="instagram-logo.png" alt="Instagram" />
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <h1>About CeyloanBot</h1>
+
+  <section>
+    <p>
+      CeyloanBot is a pioneering crypto loan platform dedicated to empowering Sri Lankan citizens with
+      easy access to crypto-backed and traditional bank loans. Our mission is to bridge the gap between
+      modern finance and local welfare.
+    </p>
+  </section>
+
+  <section>
+    <h2>Our Vision</h2>
+    <p>
+      We envision a Sri Lanka where everyone can harness the power of crypto finance securely,
+      transparently, and conveniently.
+    </p>
+  </section>
+
+  <section class="video-container">
+    <video controls autoplay muted loop playsinline>
+      <source src="promo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section>
+    <h2>Why Choose CeyloanBot?</h2>
+    <ul>
+      <li>Trusted & Transparent</li>
+      <li>Low Interest Rates</li>
+      <li>Fast & Secure Loan Processing</li>
+      <li>24/7 Customer Support via Telegram Bot</li>
+      <li>Easy Investment Opportunities</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Get Started</h2>
+    <p>
+      Join thousands of Sri Lankans who trust CeyloanBot. Use our Telegram bot for loans, investments,
+      and support.
+    </p>
+    <p><a href="https://t.me/CeyloanBot_Community" target="_blank" class="highlight">Join the Telegram Bot</a></p>
+  </section>
+</main>
+
+<footer>
+  © 2025 CeyloanBot • Empowering Sri Lanka through crypto finance<br />
+  Brand Ambassadorships Available • Join the Movement
+</footer>
+
+<script>
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link =>
+    link.addEventListener('click', () => {
+      if (navLinks.classList.contains('open')) navLinks.classList.remove('open');
+    })
+  );
+
+  // Scroll animations for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</body>
+</html>
