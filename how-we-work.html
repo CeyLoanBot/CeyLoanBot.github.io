@@ -16,42 +16,104 @@
     }
 
     /* === Header & Navigation === */
-  header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Distribute space between left and right */
-  padding: 10px 30px;
-  gap: 15px;
-  flex-wrap: nowrap; /* Prevent wrapping */
-  }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Spread left and right */
+      padding: 10px 30px;
+      gap: 15px;
+      flex-wrap: nowrap; /* Prevent wrapping */
+      z-index: 1000;
+    }
 
-   nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: nowrap; /* Prevent wrapping */
-  }
-
-   ul.nav-links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: nowrap; /* Prevent wrapping */
-  }
-
+    header img.logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
 
     .title {
       font-weight: 700;
       font-size: 1.4rem;
       color: #007acc;
       margin-left: 12px;
-      flex-grow: 1;
       user-select: none;
+      white-space: nowrap; /* Prevent breaking */
+    }
+
+    /* Group logo and title together */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 1;
+      min-width: 0;
     }
 
     nav {
-      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: nowrap; /* Prevent wrapping */
+      flex-shrink: 0;
     }
 
+    ul.nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+      flex-wrap: nowrap; /* Prevent wrapping */
+      user-select: none;
+    }
+
+    ul.nav-links li a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      white-space: nowrap; /* Prevent breaking */
+    }
+
+    ul.nav-links li a:hover,
+    ul.nav-links li a.active {
+      background-color: #007acc;
+      color: #fff;
+    }
+
+    .nav-socials {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .nav-socials a img {
+      width: 24px;
+      height: 24px;
+      filter: grayscale(100%) brightness(70%);
+      transition: filter 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .nav-socials a:hover img {
+      filter: none;
+      transform: scale(1.2);
+    }
+
+    /* Hamburger menu for mobile */
     #hamburger {
       display: none;
       width: 25px;
@@ -67,52 +129,6 @@
       border-radius: 2px;
     }
 
-    ul.nav-links {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      gap: 20px;
-      user-select: none;
-    }
-
-    ul.nav-links li a {
-      text-decoration: none;
-      color: #007acc;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 6px 10px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
-
-    ul.nav-links li a:hover,
-    ul.nav-links li a.active {
-      background-color: #007acc;
-      color: #fff;
-    }
-
-    .nav-socials {
-      margin-left: 15px;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .nav-socials a img {
-      width: 24px;
-      height: 24px;
-      filter: grayscale(100%) brightness(70%);
-      transition: filter 0.3s ease, transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .nav-socials a:hover img {
-      filter: none;
-      transform: scale(1.2);
-    }
-
-    /* Hamburger menu for mobile */
     @media (max-width: 840px) {
       #hamburger {
         display: flex;
@@ -223,8 +239,11 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="CeyloanBot Logo" class="logo" />
-    <div class="title">CeyloanBot Inc</div>
+    <div class="header-left">
+      <img src="logo.png" alt="CeyloanBot Logo" class="logo" />
+      <div class="title">CeyloanBot Inc</div>
+    </div>
+
     <nav>
       <div id="hamburger" aria-label="Toggle menu" tabindex="0">
         <div></div>
