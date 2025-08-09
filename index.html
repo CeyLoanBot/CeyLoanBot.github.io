@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CeyloanBot • Home</title>
+<title>CeyloanBot • Crypto Loans in Sri Lanka</title>
 <style>
   /* Reset */
   * {
@@ -105,10 +105,12 @@
   .nav-socials a img {
     width: 24px;
     height: 24px;
-    filter: invert(31%) sepia(95%) saturate(2733%) hue-rotate(185deg) brightness(91%) contrast(89%);
-    transition: transform 0.3s;
+    filter: grayscale(100%) brightness(70%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
   }
   .nav-socials a:hover img {
+    filter: none;
     transform: scale(1.2);
   }
 
@@ -149,7 +151,7 @@
     padding: 0 20px;
   }
 
-  /* Page title */
+  /* Page titles */
   main h1 {
     font-size: 2.2rem;
     font-weight: 700;
@@ -158,6 +160,10 @@
     opacity: 0;
     transform: translateY(30px);
     animation: fadeSlideIn 0.8s forwards;
+  }
+  main h2 {
+    color: #007acc;
+    margin-top: 40px;
   }
 
   /* Sections fade in */
@@ -185,20 +191,6 @@
   }
   .highlight:hover {
     text-decoration: underline;
-  }
-  .socials {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-  }
-  .socials a img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s;
-  }
-  .socials a:hover img {
-    transform: scale(1.2);
   }
 
   /* Footer */
@@ -260,51 +252,58 @@
 </header>
 
 <main>
-  <h1>Welcome to CeyloanBot</h1>
-
+  <h1>💸 Bigger Loans for Sri Lankans</h1>
   <section>
-    <h2>💸 Bigger Loans for Sri Lankans</h2>
     <p>We prioritize <span class="highlight">local welfare</span> by offering higher loan amounts to Sri Lankan citizens than to foreigners.</p>
     <img src="money.png" alt="Loan Money" />
   </section>
 
+  <h2>📉 Low Interest Rates</h2>
   <section>
-    <h2>📉 Low Interest Rates</h2>
     <p>Monthly interest ranges from <span class="highlight">4%–9%</span>, and loyal customers enjoy just <span class="highlight">2%–3%</span>.</p>
     <img src="repay.png" alt="Repayment" />
   </section>
 
+  <h2>🪙 Crypto & Bank Transfers</h2>
   <section>
-    <h2>🪙 Crypto & Bank Transfers</h2>
     <p>We specialize in <span class="highlight">crypto loans</span>, but also support <span class="highlight">bank transfers</span> for convenience.</p>
     <img src="crypto.png" alt="Crypto Loans" />
   </section>
 
+  <h2>📊 ROI & Loan Calculator</h2>
+  <section id="calc-container">
+    <p>Estimate your potential returns or repayments below.</p>
+    <div class="toggle">
+      <button onclick="setMode('investment')">💰 Investment</button>
+      <button onclick="setMode('loan')">💸 Loan</button>
+    </div>
+    <label for="amount">Enter Amount (USD):</label>
+    <input type="number" id="amount" placeholder="e.g. 250" />
+    <label for="months">Duration (Months):</label>
+    <input type="number" id="months" placeholder="e.g. 6" />
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+  </section>
+
+  <h2>🛡️ Trusted, Transparent & Secure</h2>
   <section>
-    <h2>🛡️ Trusted, Transparent & Secure</h2>
     <p>Your data and transactions are protected with industry-standard security practices. We ensure transparency in every loan and investment.</p>
     <img src="security.png" alt="Security" />
   </section>
 
+  <h2>🌐 Join Our Growing Community</h2>
   <section>
-    <h2>🌐 Join Our Growing Community</h2>
-    <p>Thousands of Sri Lankans already trust <a href="https://t.me/CeyloanBot_Community" target="_blank" class="highlight">CeyloanBot</a>. Stay updated, ask questions, and be part of something revolutionary.</p>
+    <p>Thousands of Sri Lankans already trust <span class="highlight"><a href="https://t.me/CeyloanBot_Community" target="_blank">CeyloanBot</a></span>. Stay updated, ask questions, and be part of something revolutionary.</p>
     <img src="community.png" alt="Community" />
   </section>
 
+  <h2>🤖 Reach Us Anytime</h2>
   <section>
-    <h2>🤖 Reach Us Anytime</h2>
     <p>Most loans are processed via our <a class="highlight" href="https://t.me/CeyloanBot_Community" target="_blank">Telegram bot</a>, but you can also connect through <a class="highlight" href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank">WhatsApp</a> or <a class="highlight" href="https://instagram.com/ceyloanbot" target="_blank">Instagram</a>.</p>
     <div class="socials">
-      <a href="https://t.me/CeyloanBot_Community" target="_blank">
-        <img src="telegram-logo.png" alt="Telegram" />
-      </a>
-      <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank">
-        <img src="whatsapp-logo.png" alt="WhatsApp" />
-      </a>
-      <a href="https://instagram.com/ceyloanbot" target="_blank">
-        <img src="instagram-logo.png" alt="Instagram" />
-      </a>
+      <a href="https://t.me/CeyloanBot_Community" target="_blank"><img src="telegram-logo.png" alt="Telegram" /></a>
+      <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank"><img src="whatsapp-logo.png" alt="WhatsApp" /></a>
+      <a href="https://instagram.com/ceyloanbot" target="_blank"><img src="instagram-logo.png" alt="Instagram" /></a>
     </div>
   </section>
 </main>
@@ -315,6 +314,41 @@
 </footer>
 
 <script>
+  let mode = 'investment';
+  function setMode(selectedMode) {
+    mode = selectedMode;
+    document.getElementById("result").innerHTML = '';
+  }
+  function calculate() {
+    const amount = parseFloat(document.getElementById("amount").value);
+    const months = parseInt(document.getElementById("months").value);
+    if (isNaN(amount) || isNaN(months) || amount <= 0 || months <= 0) {
+      document.getElementById("result").innerText = "Please enter valid positive numbers.";
+      return;
+    }
+    let rate = 0;
+    if (mode === 'investment') {
+      if (amount >= 10 && amount <= 99) rate = 1;
+      else if (amount <= 499) rate = 3;
+      else if (amount <= 999) rate = 5;
+      else if (amount <= 2999) rate = 8;
+      else if (amount >= 3000) rate = 11.5;
+      const total = amount + (amount * (rate / 100) * months);
+      document.getElementById("result").innerText = `Expected ROI: $${(total - amount).toFixed(2)} | Total: $${total.toFixed(2)} @ ${rate}% monthly`;
+    } else if (mode === 'loan') {
+      if (amount >= 10 && amount <= 150) rate = 15;
+      else if (amount <= 300) rate = 11;
+      else if (amount <= 1000) rate = 8.5;
+      else if (amount <= 2999) rate = 3.5;
+      else {
+        document.getElementById("result").innerText = "Loan amount exceeds limit.";
+        return;
+      }
+      const total = amount + (amount * (rate / 100) * months);
+      document.getElementById("result").innerText = `Estimated Repayment: $${total.toFixed(2)} @ ${rate}% monthly`;
+    }
+  }
+
   // Hamburger toggle
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
@@ -323,7 +357,6 @@
     navLinks.classList.toggle('open');
   });
 
-  // Close menu on link click (mobile)
   document.querySelectorAll('.nav-links a').forEach(link =>
     link.addEventListener('click', () => {
       if (navLinks.classList.contains('open')) navLinks.classList.remove('open');
@@ -343,6 +376,5 @@
     observer.observe(section);
   });
 </script>
-
 </body>
 </html>
