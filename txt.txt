@@ -1,0 +1,55 @@
+Image files & recommended dimensions
+Image filename	Description	Dimensions (approx)
+logo.png	CeyloanBot round logo for header	40x40 px
+telegram-logo.png	Telegram icon for header nav social links	24x24 px
+whatsapp-logo.png	WhatsApp icon for header nav social links	24x24 px
+instagram-logo.png	Instagram icon for header nav social links	24x24 px
+money.png	Illustration for loan money section	300x200 px
+repay.png	Illustration for repayment section	300x200 px
+crypto.png	Illustration for crypto loans section	300x200 px
+security.png	Illustration for security section	300x200 px
+community.png	Illustration for community section	300x200 px
+about-crypto.png	Illustration representing crypto finance	300x200 px
+about-bank.png	Illustration representing bank transfers	300x200 px
+promo.mp4	Landscape promo video (max-width 700px)	16:9 aspect ratio
+
+
+
+
+
+
+| Filename          | Description                         | Dimensions |
+| ----------------- | ----------------------------------- | ---------- |
+| how-we-work-1.png | Graphic of ID verification process  | 300x200 px |
+| how-we-work-2.png | Illustration of loan application    | 300x200 px |
+| how-we-work-3.png | Crypto & bank transfer illustration | 300x200 px |
+| how-we-work-4.png | Customer support graphic            | 300x200 px |
+
+
+
+| File Name              | Recommended Dimensions | Description / Content                                                    |
+| ---------------------- | ---------------------- | ------------------------------------------------------------------------ |
+| **logo.png**           | 400×400 px             | Round company logo for header. Use a transparent background if possible. |
+| **telegram-logo.png**  | 24×24 px               | Telegram icon (monochrome or brand color).                               |
+| **whatsapp-logo.png**  | 24×24 px               | WhatsApp icon (monochrome or brand color).                               |
+| **instagram-logo.png** | 24×24 px               | Instagram icon (monochrome or brand color).                              |
+| **invest-crypto.png**  | \~700×500 px           | Illustration of crypto investment concept.                               |
+| **invest-growth.png**  | \~700×500 px           | Illustration of portfolio growth or chart going upward.                  |
+| **invest-diverse.png** | \~700×500 px           | Illustration of diversified assets (crypto, stocks, real estate).        |
+
+
+
+| Filename                                                       | Description                                | Recommended size    |
+| -------------------------------------------------------------- | ------------------------------------------ | ------------------- |
+| `donate-crypto.png`                                            | Crypto coins or wallet illustration        | 700x400 px          |
+| `donate-wallet.png`                                            | Wallet with crypto coins or banknotes      | 700x400 px          |
+| `donate-community.png`                                         | Hands joining or community support graphic | 700x400 px          |
+| `logo.png`                                                     | Your brand logo (used in header)           | 400x400 px (circle) |
+| `telegram-logo.png`, `whatsapp-logo.png`, `instagram-logo.png` | Social icons, 24x24 px each                | 24x24 px each       |
+
+
+| Filename                                                       | Description                        | Recommended size |
+| -------------------------------------------------------------- | ---------------------------------- | ---------------- |
+| `contact-us.png`                                               | Illustration of contacting/support | 700x400 px       |
+| `logo.png`                                                     | Your logo (circle)                 | 400x400 px       |
+| `telegram-logo.png`, `whatsapp-logo.png`, `instagram-logo.png` | Social icons                       | 24x24 px each    |
