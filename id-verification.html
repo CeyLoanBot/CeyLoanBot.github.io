@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ID Verification • CeyloanBot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ID Verification</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="donations.html">Donations</a>
+      <a href="investments.html">Investments</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="careers.html">Careers</a>
+      <a href="referral.html">Referral</a>
+      <a href="how-we-work.html">How We Work</a>
+      <a href="investment-security.html">Investment Security</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>🔐 Secure Onboarding</h2>
+    <p>All users must complete ID verification to ensure compliance and protect our community from fraud.</p>
+    <img src="id-check.png" alt="ID Check" width="100%" style="max-width:500px;">
+  </section>
+
+  <section>
+    <h2>📄 Required Documents</h2>
+    <ul>
+      <li>National ID or Passport</li>
+      <li>Proof of Address (utility bill or bank statement)</li>
+      <li>Selfie with ID</li>
+    </ul>
+    <p>Submit documents via our secure portal or Telegram bot.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 CeyloanBot • Your security is our priority</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = 0;
+      section.style.transform = 'translateY(40px)';
+      section.style.transition = 'all 1s ease-out';
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

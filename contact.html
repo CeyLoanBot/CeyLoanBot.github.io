@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact • CeyloanBot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="donations.html">Donations</a>
+      <a href="investments.html">Investments</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="careers.html">Careers</a>
+      <a href="referral.html">Referral</a>
+      <a href="how-we-work.html">How We Work</a>
+      <a href="id-verification.html">ID Verification</a>
+      <a href="investment-security.html">Investment Security</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>📬 Get in Touch</h2>
+    <p>We’re here to help. Reach out via Telegram, WhatsApp, or Instagram.</p>
+    <img src="contact-icons.png" alt="Contact Icons" width="100%" style="max-width:600px;">
+  </section>
+
+  <section>
+    <h2>⏰ Support Hours</h2>
+    <p>Monday–Friday: 9 AM – 6 PM<br>Saturday: 10 AM – 2 PM<br>Sunday: Closed</p>
+    <img src="support-team.png" alt="Support Team" width="100%" style="max-width:500px;">
+  </section>
+
+  <footer>
+    <p>© 2025 CeyloanBot • Reach us anytime</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = 0;
+      section.style.transform = 'translateY(40px)';
+      section.style.transition = 'all 1s ease-out';
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

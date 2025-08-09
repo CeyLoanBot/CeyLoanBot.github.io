@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Investments • CeyloanBot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Investment Opportunities</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="donations.html">Donations</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="careers.html">Careers</a>
+      <a href="referral.html">Referral</a>
+      <a href="how-we-work.html">How We Work</a>
+      <a href="id-verification.html">ID Verification</a>
+      <a href="investment-security.html">Investment Security</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>🚀 Grow with Us</h2>
+    <p>Invest in CeyloanBot and be part of Sri Lanka’s crypto revolution. We offer flexible plans with high returns and full transparency.</p>
+    <img src="investment-growth.png" alt="Investment Growth" width="100%" style="max-width:600px;">
+  </section>
+
+  <section>
+    <h2>📊 Plans & Returns</h2>
+    <ul>
+      <li>Starter Plan: ₹5,000 – 8% monthly return</li>
+      <li>Pro Plan: ₹25,000 – 12% monthly return</li>
+      <li>Elite Plan: ₹100,000+ – 15% monthly return</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 CeyloanBot • Invest smart, grow fast</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = 0;
+      section.style.transform = 'translateY(40px)';
+      section.style.transition = 'all 1s ease-out';
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

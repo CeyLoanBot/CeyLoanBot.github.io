@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Disclaimer • CeyloanBot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Disclaimer</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="donations.html">Donations</a>
+      <a href="investments.html">Investments</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="careers.html">Careers</a>
+      <a href="referral.html">Referral</a>
+      <a href="how-we-work.html">How We Work</a>
+      <a href="id-verification.html">ID Verification</a>
+      <a href="investment-security.html">Investment Security</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>📌 Important Notice</h2>
+    <p>Investing in cryptocurrency involves risk. CeyloanBot does not guarantee profits and is not liable for any financial losses.</p>
+    <img src="risk-warning.png" alt="Risk Warning" width="100%" style="max-width:500px;">
+  </section>
+
+  <section>
+    <h2>🔍 Transparency</h2>
+    <p>We strive to provide accurate information, but users must conduct their own due diligence before investing.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 CeyloanBot • Stay informed, invest wisely</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = 0;
+      section.style.transform = 'translateY(40px)';
+      section.style.transition = 'all 1s ease-out';
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

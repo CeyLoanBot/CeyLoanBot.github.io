@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Investment Security • CeyloanBot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Investment Security</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="donations.html">Donations</a>
+      <a href="investments.html">Investments</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="careers.html">Careers</a>
+      <a href="referral.html">Referral</a>
+      <a href="how-we-work.html">How We Work</a>
+      <a href="id-verification.html">ID Verification</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>🛡️ Our Commitment</h2>
+    <p>We use multi-layered security protocols, cold wallets, and smart contracts to protect your investments.</p>
+    <img src="security-shield.png" alt="Security Shield" width="100%" style="max-width:500px;">
+  </section>
+
+  <section>
+    <h2>🔍 Audits & Transparency</h2>
+    <p>Our systems are regularly audited by third-party firms. All transactions are logged on the blockchain for full transparency.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 CeyloanBot • Invest with confidence</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = 0;
+      section.style.transform = 'translateY(40px)';
+      section.style.transition = 'all 1s ease-out';
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
