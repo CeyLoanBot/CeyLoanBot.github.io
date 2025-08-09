@@ -416,12 +416,19 @@ ul.nav-links li a.active {
 
   <script>
     // Hamburger toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+   const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link =>
+  link.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) navLinks.classList.remove('open');
+  })
+);
+
 
     document.querySelectorAll('.nav-links a').forEach(link =>
       link.addEventListener('click', () => {
