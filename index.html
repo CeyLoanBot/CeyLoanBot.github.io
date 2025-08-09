@@ -2,243 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CeyloanBot • Crypto Loans in Sri Lanka</title>
+  <title>CeyloanBot • Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f6f8;
-      color: #333;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    header img.logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-    }
-
-    header h1 {
-      margin-left: 15px;
-      font-size: 1.8em;
-      color: #007acc;
-    }
-
-    section {
-      padding: 60px 20px;
-      text-align: center;
-      animation: fadeIn 1.2s ease-in;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease-out;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    section img {
-      max-width: 300px;
-      border-radius: 12px;
-      margin: 20px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .highlight {
-      font-weight: bold;
-      color: #007acc;
-      text-decoration: none;
-    }
-
-    .highlight:hover {
-      text-decoration: underline;
-    }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .socials a img {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.3s;
-    }
-
-    .socials a:hover img {
-      transform: scale(1.2);
-    }
-
-    footer {
-      background-color: #fff;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #777;
-      border-top: 1px solid #ddd;
-    }
-
-    #calc-container {
-      max-width: 400px;
-      margin: 0 auto;
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    #calc-container input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1em;
-    }
-
-    #calc-container button {
-      padding: 10px 20px;
-      background-color: #007acc;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-
-    .toggle button {
-      margin: 5px;
-    }
-
-    #result {
-      margin-top: 15px;
-      font-weight: bold;
-      color: #333;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
-    <img src="logo.png" alt="CeyloanBot Logo" class="logo">
-    <h1>CeyloanBot</h1>
+    <h1>Welcome to CeyloanBot</h1>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="donations.html">Donations</a>
+      <a href="investments.html">Investments</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="careers.html">Careers</a>
+      <a href="referral.html">Referral</a>
+      <a href="how-we-work.html">How We Work</a>
+      <a href="id-verification.html">ID Verification</a>
+      <a href="investment-security.html">Investment Security</a>
+    </nav>
   </header>
 
   <section>
-    <h2>💸 Bigger Loans for Sri Lankans</h2>
-    <p>We prioritize <span class="highlight">local welfare</span> by offering higher loan amounts to Sri Lankan citizens than to foreigners.</p>
-    <img src="money.png" alt="Loan Money">
+    <h2>🚀 Empowering Sri Lanka Through Crypto Finance</h2>
+    <p>Welcome to the future of lending and investing. CeyloanBot offers secure, transparent, and fast crypto-based financial services tailored for Sri Lankans.</p>
+    <img src="hero-banner.png" alt="Hero Banner" width="100%" style="max-width:1200px;">
   </section>
 
   <section>
-    <h2>📉 Low Interest Rates</h2>
-    <p>Monthly interest ranges from <span class="highlight">4%–9%</span>, and loyal customers enjoy just <span class="highlight">2%–3%</span>.</p>
-    <img src="repay.png" alt="Repayment">
-  </section>
-
-  <section>
-    <h2>🪙 Crypto & Bank Transfers</h2>
-    <p>We specialize in <span class="highlight">crypto loans</span>, but also support <span class="highlight">bank transfers</span> for convenience.</p>
-    <img src="crypto.png" alt="Crypto Loans">
-  </section>
-
-  <section>
-    <h2>📊 ROI & Loan Calculator</h2>
-    <p>Estimate your potential returns or repayments below.</p>
-    <div id="calc-container">
-      <div class="toggle">
-        <button onclick="setMode('investment')">💰 Investment</button>
-        <button onclick="setMode('loan')">💸 Loan</button>
-      </div>
-      <label>Enter Amount (USD):</label>
-      <input type="number" id="amount" placeholder="e.g. 250">
-      <label>Duration (Months):</label>
-      <input type="number" id="months" placeholder="e.g. 6">
-      <button onclick="calculate()">Calculate</button>
-      <div id="result"></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>🛡️ Trusted, Transparent & Secure</h2>
-    <p>Your data and transactions are protected with industry-standard security practices. We ensure transparency in every loan and investment.</p>
-    <img src="security.png" alt="Security">
-  </section>
-
-  <section>
-    <h2>🌐 Join Our Growing Community</h2>
-    <p>Thousands of Sri Lankans already trust <span class="highlight"><a href="https://t.me/CeyloanBot_Community" class="highlight" target="_blank">CeyloanBot</a></span>. Stay updated, ask questions, and be part of something revolutionary.</p>
-    <img src="community.png" alt="Community">
-  </section>
-
-  <section>
-    <h2>🤖 Reach Us Anytime</h2>
-    <p>Most loans are processed via our <a class="highlight" href="https://t.me/CeyloanBot_Community" target="_blank">Telegram bot</a>, but you can also connect through <a class="highlight" href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank">WhatsApp</a> or <a class="highlight" href="https://instagram.com/ceyloanbot" target="_blank">Instagram</a>.</p>
-    <div class="socials">
-      <a href="https://t.me/CeyloanBot_Community" target="_blank">
-        <img src="telegram-logo.png" alt="Telegram">
-      </a>
-      <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank">
-        <img src="whatsapp-logo.png" alt="WhatsApp">
-      </a>
-      <a href="https://instagram.com/ceyloanbot" target="_blank">
-        <img src="instagram-logo.png" alt="Instagram">
-      </a>
-    </div>
+    <h2>💼 What We Offer</h2>
+    <p>Loans, investments, and financial tools—all powered by blockchain and backed by trust.</p>
+    <img src="services-overview.png" alt="Services Overview" width="100%" style="max-width:800px;">
   </section>
 
   <footer>
-    © 2025 CeyloanBot • Empowering Sri Lanka through crypto finance  
-    <br>Brand Ambassadorships Available • Join the Movement
+    <p>© 2025 CeyloanBot • All rights reserved</p>
   </footer>
 
   <script>
-    let mode = 'investment';
-
-    function setMode(selectedMode) {
-      mode = selectedMode;
-      document.getElementById("result").innerHTML = '';
-    }
-
-    function calculate() {
-      const amount = parseFloat(document.getElementById("amount").value);
-      const months = parseInt(document.getElementById("months").value);
-      let rate = 0;
-
-      if (mode === 'investment') {
-        if (amount >= 10 && amount <= 99) rate = 1;
-        else if (amount <= 499) rate = 3;
-        else if (amount <= 999) rate = 5;
-        else if (amount <= 2999) rate = 8;
-        else if (amount >= 3000) rate = 11.5; // avg of 10–13%
-        const total = amount + (amount * (rate / 100) * months);
-        document.getElementById("result").innerText = `Expected ROI: $${(total - amount).toFixed(2)} | Total: $${total.toFixed(2)} @ ${rate}% monthly`;
-      }
-
-      else if (mode === 'loan') {
-        if (amount >= 10 && amount <= 150) rate = 15;
-        else if (amount <= 300) rate = 11; // avg of 9–13%
-        else if (amount <= 1000) rate = 8.5;
-        else if (amount <= 2999) rate = 3.5;
-        const total = amount + (amount * (rate / 100) * months);
-        document.getElementById("result").innerText = `Estimated Repayment: $${total.toFixed(2)} @ ${rate}% monthly`;
-      }
-    }
-
-    // Scroll animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -248,6 +50,9 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = 0;
+      section.style.transform = 'translateY(40px)';
+      section.style.transition = 'all 1s ease-out';
       observer.observe(section);
     });
   </script>
