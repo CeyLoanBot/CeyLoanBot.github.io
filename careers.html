@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CeyloanBot • Careers</title>
+<style>
+  /* Same CSS as other pages */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    overflow-x: hidden;
+  }
+  a {
+    color: #007acc;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+  }
+  header .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  header .title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #007acc;
+    margin-left: 12px;
+    user-select: none;
+  }
+
+  nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  #hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  #hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #007acc;
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+
+  ul.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.nav-links li {
+    margin-left: 20px;
+  }
+  ul.nav-links li a {
+    font-weight: 600;
+    font-size: 1rem;
+    user-select: none;
+  }
+  ul.nav-links li a.active,
+  ul.nav-links li a:hover {
+    color: #004f8a;
+    border-bottom: 2px solid #007acc;
+    padding-bottom: 2px;
+  }
+
+  .nav-socials {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+  .nav-socials a {
+    margin-left: 12px;
+  }
+  .nav-socials a img {
+    width: 24px;
+    height: 24px;
+    filter: grayscale(100%) brightness(70%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  .nav-socials a:hover img {
+    filter: none;
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 900px) {
+    #hamburger {
+      display: flex;
+    }
+    ul.nav-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+    ul.nav-links.open {
+      max-height: 400px;
+    }
+    ul.nav-links li {
+      margin: 12px 0;
+      text-align: center;
+    }
+    .nav-socials {
+      display: none;
+    }
+  }
+
+  main {
+    max-width: 900px;
+    margin: 90px auto 60px;
+    padding: 0 20px;
+  }
+
+  main h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #007acc;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideIn 0.8s forwards;
+  }
+  section {
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  section img {
+    max-width: 300px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .highlight {
+    font-weight: bold;
+    color: #007acc;
+  }
+  .highlight:hover {
+    text-decoration: underline;
+  }
+
+  footer {
+    background-color: #fff;
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid #ddd;
+    user-select: none;
+  }
+
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  form input, form textarea, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    font-family: inherit;
+  }
+  form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  form button {
+    background: #007acc;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  form button:hover {
+    background: #005f99;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="CeyloanBot Logo" class="logo" />
+  <div class="title">CeyloanBot Inc</div>
+  <nav>
+    <div id="hamburger" aria-label="Toggle menu" tabindex="0">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="how-we-work.html">How We Work</a></li>
+      <li><a href="investments.html">Investments</a></li>
+      <li><a href="donations.html">Donations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="security.html">Security</a></li>
+      <li><a href="referral.html">Referral</a></li>
+      <li><a href="careers.html" class="active">Careers</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+    </ul>
+    <div class="nav-socials">
+      <a href="https://t.me/CeyloanBot_Community" target="_blank" title="Telegram Bot">
+        <img src="telegram-logo.png" alt="Telegram" />
+      </a>
+      <a href="https://whatsapp.com/channel/0029Vb6FLqH7T8bQ2sYRBY31" target="_blank" title="WhatsApp">
+        <img src="whatsapp-logo.png" alt="WhatsApp" />
+      </a>
+      <a href="https://instagram.com/ceyloanbot" target="_blank" title="Instagram">
+        <img src="instagram-logo.png" alt="Instagram" />
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <h1>Careers at CeyloanBot</h1>
+
+  <section>
+    <p>Join our team and be part of an innovative fintech company empowering Sri Lanka through crypto finance. We are looking for passionate individuals to help us grow and make a difference.</p>
+    <img src="careers-team.png" alt="Team collaboration illustration" />
+  </section>
+
+  <section>
+    <h2>Open Positions</h2>
+    <ul>
+      <li><strong>Software Developer</strong> – Build and maintain our platform.</li>
+      <li><strong>Marketing Specialist</strong> – Promote our brand and grow our community.</li>
+      <li><strong>Customer Support</strong> – Assist users with loans and investments.</li>
+      <li><strong>Compliance Officer</strong> – Ensure regulatory and security standards.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How to Apply</h2>
+    <p>Send your CV and cover letter to <a href="mailto:ceyloanbot@proton.me" class="highlight">ceyloanbot@proton.me</a> with the subject line “Job Application - [Position Name]”.</p>
+    <p>Include relevant experience, skills, and why you want to join CeyloanBot.</p>
+  </section>
+
+  <section>
+    <h2>Why Work With Us?</h2>
+    <ul>
+      <li>Innovative projects in crypto finance.</li>
+      <li>Flexible and supportive work environment.</li>
+      <li>Opportunities for professional growth.</li>
+      <li>Be part of a mission to empower Sri Lanka financially.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  © 2025 CeyloanBot • Empowering Sri Lanka through crypto finance<br />
+  Brand Ambassadorships Available • Join the Movement
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(link =>
+    link.addEventListener('click', () => {
+      if (navLinks.classList.contains('open')) navLinks.classList.remove('open');
+    })
+  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</body>
+</html>
